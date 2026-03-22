@@ -1,5 +1,9 @@
 # Sparkline Trend Table (Power BI Custom Visual)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A high-performance Power BI custom visual developed with **D3.js** and **TypeScript**. This visual allows users to view trend sparklines alongside tabular data for immediate context on performance metrics.
+
 ![Sparkline Trend Table Preview](assets/sparkline-preview.png)
 
 ## Overview
