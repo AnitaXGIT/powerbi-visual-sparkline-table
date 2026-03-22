@@ -1,0 +1,39 @@
+{
+    "dataRoles": [
+        { "displayName": "Category", "name": "category", "kind": "Grouping" },
+        { "displayName": "Metric Columns", "name": "metricValues", "kind": "Measure" },
+        { "displayName": "Stacked Bar Segments", "name": "stackedValues", "kind": "Measure" },
+        { "displayName": "Bubble Size", "name": "bubbleValues", "kind": "Measure" },
+        { "displayName": "Sparkline Axis (Date)", "name": "sparklineAxis", "kind": "Grouping" },
+        { "displayName": "Sparkline Values", "name": "sparklineValues", "kind": "Measure" }
+    ],
+    "objects": {
+        "generalSettings": { "properties": { "fontFamily": { "type": { "formatting": { "fontFamily": true } } }, "fontSize": { "type": { "formatting": { "fontSize": true } } }, "fontColor": { "type": { "fill": { "solid": { "color": true } } } }, "wrapText": { "type": { "bool": true } }, "rowHeight": { "type": { "numeric": true } }, "categoryTitle": { "type": { "text": true } }, "valueTextAlign": { "type": { "enumeration": [ { "value": "left" }, { "value": "center" }, { "value": "right" } ] } } } },
+        "headerSettings": { "properties": { "fontFamily": { "type": { "formatting": { "fontFamily": true } } }, "fontSize": { "type": { "formatting": { "fontSize": true } } }, "fontColor": { "type": { "fill": { "solid": { "color": true } } } }, "backgroundColor": { "type": { "fill": { "solid": { "color": true } } } }, "wrapText": { "type": { "bool": true } }, "textAlign": { "type": { "enumeration": [ { "value": "left" }, { "value": "center" }, { "value": "right" } ] } } } },
+        "stackedBarSettings": { "properties": { "columnTitle": { "type": { "text": true } }, "fillMode": { "type": { "enumeration": [ { "value": "percentage" }, { "value": "absolute" } ] } }, "showLabels": { "type": { "bool": true } }, "labelFontSize": { "type": { "formatting": { "fontSize": true } } }, "labelDecimals": { "type": { "numeric": true } }, "labelFontColor": { "type": { "fill": { "solid": { "color": true } } } }, "legendFontSize": { "type": { "formatting": { "fontSize": true } } }, "series1Color": { "type": { "fill": { "solid": { "color": true } } } }, "series2Color": { "type": { "fill": { "solid": { "color": true } } } }, "series3Color": { "type": { "fill": { "solid": { "color": true } } } }, "series4Color": { "type": { "fill": { "solid": { "color": true } } } }, "series5Color": { "type": { "fill": { "solid": { "color": true } } } }, "series6Color": { "type": { "fill": { "solid": { "color": true } } } } } },
+        "bubbleSettings": { "properties": { "bubbleColor": { "type": { "fill": { "solid": { "color": true } } } }, "minBubbleSize": { "type": { "numeric": true } }, "maxBubbleSize": { "type": { "numeric": true } }, "showLabels": { "type": { "bool": true } }, "labelFontSize": { "type": { "formatting": { "fontSize": true } } }, "labelDecimals": { "type": { "numeric": true } }, "labelFontColor": { "type": { "fill": { "solid": { "color": true } } } } } },
+        "barSparklineSettings": { "properties": { "barColor": { "type": { "fill": { "solid": { "color": true } } } }, "showLabels": { "type": { "bool": true } }, "showXAxis": { "type": { "bool": true } }, "axisColor": { "type": { "fill": { "solid": { "color": true } } } }, "axisWidth": { "type": { "numeric": true } }, "labelFontSize": { "type": { "formatting": { "fontSize": true } } }, "labelDecimals": { "type": { "numeric": true } }, "labelFontColor": { "type": { "fill": { "solid": { "color": true } } } } } }
+    },
+    "dataViewMappings": [
+        {
+            "conditions": [ { "category": { "max": 1 }, "sparklineAxis": { "max": 1 } } ],
+            "matrix": {
+                "rows": { "for": { "in": "category" }, "dataReductionAlgorithm": { "top": { "count": 1000 } } },
+                "columns": { "for": { "in": "sparklineAxis" }, "dataReductionAlgorithm": { "top": { "count": 100 } } },
+                "values": { "select": [ { "for": { "in": "metricValues" } }, { "for": { "in": "stackedValues" } }, { "for": { "in": "bubbleValues" } }, { "for": { "in": "sparklineValues" } } ] }
+            }
+        }
+    ],
+    "subtotals": {
+        "matrix": {
+            "rowSubtotals": { "propertyIdentifier": { "objectName": "subTotals", "propertyName": "rowSubtotals" }, "defaultValue": true },
+            "rowSubtotalsPerLevel": { "propertyIdentifier": { "objectName": "subTotals", "propertyName": "perRowLevel" }, "defaultValue": false },
+            "columnSubtotals": { "propertyIdentifier": { "objectName": "subTotals", "propertyName": "columnSubtotals" }, "defaultValue": true },
+            "columnSubtotalsPerLevel": { "propertyIdentifier": { "objectName": "subTotals", "propertyName": "perColumnLevel" }, "defaultValue": false },
+            "levelSubtotalEnabled": { "propertyIdentifier": { "objectName": "subTotals", "propertyName": "levelSubtotalEnabled" }, "defaultValue": true }
+        }
+    },
+    "privileges": [],
+    "supportsHighlight": false,
+    "sorting": { "default": {} }
+}

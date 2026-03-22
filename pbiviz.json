@@ -1,0 +1,26 @@
+{
+    "visual": {
+        "name": "sparklineTable",
+        "displayName": "Sparkline Table",
+        "guid": "sparklineTable25562EEF33904BDB9E569D3FCA395335",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A custom table visual with sparklines including trend bars, stacked bar and bubble columns",
+        "supportUrl": "",
+        "gitHubUrl": "https://github.com/AnitaXGIT/powerbi-visual-sparkline-table"
+    },
+    "apiVersion": "5.3.0",
+    "author": {
+        "name": "Ana Laura xavier",
+        "email": "laura.alcx@gmail.com"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": [],
+    "version": "1.0.0.0"
+}
